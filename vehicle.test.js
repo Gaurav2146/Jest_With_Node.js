@@ -106,3 +106,12 @@ describe('Testing Mock Function', () => {
         done();
     })
 })
+
+
+describe('Testing Custom error', () => {
+    let vehicle = new Vehicle([{ Id: 1, name: "Car" }, { Id: 2, name: "Bus" }, { Id: 3, name: "Train" }])
+    
+    test('Testing Rejected Promise',async ()=>{
+      await expect(vehicle.testingError()).rejects.toThrow('Custom Error');
+    })
+})

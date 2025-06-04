@@ -26,6 +26,11 @@ class Vehicle{
         printFunction( this.VehiclesAvailable);
     }
 
+    testingError()
+    {
+        return Promise.reject(new Error('Custom Error'))
+    }
+
 }
 
 module.exports=Vehicle
