@@ -1,5 +1,8 @@
-const Vehicle = require('./app');
+const Vehicle = require('./vehicle');
 
+
+//.toBeGreaterThan(0);
+//toHaveProperty("time");
 
 describe('Test vehicle methods',()=>{
 
@@ -18,6 +21,11 @@ describe('Test vehicle methods',()=>{
         expect(vehicle.deleteVehicle(2)).toHaveLength(2);
         expect(vehicle.deleteVehicle(4)).toHaveLength(2);
         expect(vehicle.deleteVehicle(3)).toHaveLength(1);
+
+        expect(vehicle.deleteVehicle(3).length).toBeGreaterThan(0);
+        expect(vehicle.deleteVehicle(3).length).toBeGreaterThanOrEqual(1);
+        expect(vehicle.deleteVehicle(3).length).toBeLessThan(2);
+        expect(vehicle.deleteVehicle(3).length).toBeLessThanOrEqual(1);
     })
 
 })
