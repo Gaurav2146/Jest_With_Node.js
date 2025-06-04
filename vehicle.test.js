@@ -125,3 +125,11 @@ describe('Testing String Methods',()=>{
         expect(string).toMatch(/Came/i);
     })
 })
+
+describe('Testing Array Methods',()=>{
+    let arr = ['Cat','Bat','Sun']
+    test('Check Array Containing',()=>{
+        expect(arr).not.toContain('Dog');
+        expect(arr).toContain('Cat');
+    })
+})
