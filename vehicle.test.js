@@ -115,3 +115,13 @@ describe('Testing Custom error', () => {
       await expect(vehicle.testingError()).rejects.toThrow('Custom Error');
     })
 })
+
+
+describe('Testing String Methods',()=>{
+
+    let string = "Hello I came back"
+
+    test('Check string matching',()=>{
+        expect(string).toMatch(/Came/i);
+    })
+})
