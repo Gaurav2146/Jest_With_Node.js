@@ -14,6 +14,12 @@ describe('Test vehicle methods',()=>{
     test("Test Vehicle Find Functinality",()=>{
         let vehicle = new Vehicle([{Id:1,name:"Car"},{Id:2,name:"Bus"},{Id:3,name:"Train"}])
         expect(vehicle.getVehicle(3)).toEqual({Id:3,name:"Train"})
+
+        expect(vehicle.getVehicle(3)).toHaveProperty('Id');
+        expect(vehicle.getVehicle(3)).toHaveProperty('name');
+
+        expect(vehicle.getVehicle(5)).toBeUndefined();
+
     })
 
     test("Test Vehicle delete Functinality",()=>{
@@ -29,3 +35,48 @@ describe('Test vehicle methods',()=>{
     })
 
 })
+
+describe('Spy on add method',()=>{
+
+    let vehicle = new Vehicle([{Id:1,name:"Car"},{Id:2,name:"Bus"},{Id:3,name:"Train"}])
+
+    let vehicleSpy = jest.spyOn(vehicle , 'addVehicle');
+
+    afterEach(()=>{
+        vehicleSpy.mockClear();
+        console.log("Spy reset")
+    })
+
+    
+    test("Test Add Vehicle Functinality",()=>{
+    
+        vehicle.addVehicle({Id:4,name:"Plane"});
+        expect(vehicleSpy).toHaveBeenCalledTimes(1);
+        expect(vehicleSpy).toHaveBeenCalledWith({Id:4,name:"Plane"});
+        expect(vehicleSpy.mock.calls[0][0]).toEqual({Id:4,name:"Plane"});
+        expect(vehicleSpy.mock.results[0].value).toHaveLength(4)
+
+        expect(vehicleSpy.mock.results[0].value).toEqual(
+            expect.arrayContaining([
+                expect.objectContaining({
+                    Id:expect.any(Number),
+                    name:expect.any(String)
+                })
+            ])
+
+        );
+
+    })
+
+    test("Test Add Vehicle Functinality",()=>{
+
+        vehicle.addVehicle({Id:4,name:"Plane"});
+        expect(vehicleSpy).toHaveBeenCalledTimes(1);
+        expect(vehicleSpy).toHaveBeenCalledWith({Id:4,name:"Plane"});
+        expect(vehicleSpy.mock.calls[0][0]).toEqual({Id:4,name:"Plane"});
+        expect(vehicleSpy.mock.results[0].value).toHaveLength(5)
+
+    })
+
+})
+
