@@ -133,3 +133,10 @@ describe('Testing Array Methods',()=>{
         expect(arr).toContain('Cat');
     })
 })
+
+describe('Testing Empty vehicle case',()=>{
+    let vehicle = new Vehicle();
+    test('Check Array length',()=>{
+        expect(vehicle.VehiclesAvailable).toEqual([]);
+    })
+})
