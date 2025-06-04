@@ -21,6 +21,11 @@ class Vehicle{
         return this.VehiclesAvailable;
     }
 
+    printVehichle(printFunction)
+    {
+        printFunction( this.VehiclesAvailable);
+    }
+
 }
 
 module.exports=Vehicle
