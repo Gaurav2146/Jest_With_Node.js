@@ -137,7 +137,7 @@ describe('Testing Array Methods',()=>{
 describe('Testing Empty vehicle case',()=>{
     let vehicle = new Vehicle();
     test('Check Array length',()=>{
-        expect(vehicle.VehiclesAvailable).toEqual([]);
+        expect(vehicle.getVehicle(1)).toBeUndefined()
     })
 })
 
@@ -147,3 +147,11 @@ describe('testing reduce method',()=>{
      expect(vehicle.testingReduceMethod()).toBe(22)
     })
 })
+
+// describe('testing Private method',()=>{
+//     let vehicle = new Vehicle();
+//     test('Calling Private Method',()=>{
+//      expect(vehicle.#testingPrivateMethod()).toBe('I am Private')
+//     })
+// })
+
