@@ -140,3 +140,10 @@ describe('Testing Empty vehicle case',()=>{
         expect(vehicle.VehiclesAvailable).toEqual([]);
     })
 })
+
+describe('testing reduce method',()=>{
+    let vehicle = new Vehicle();
+    test('Testing Sum Functionality',()=>{
+     expect(vehicle.testingReduceMethod()).toBe(22)
+    })
+})

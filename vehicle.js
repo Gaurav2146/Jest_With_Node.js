@@ -31,6 +31,14 @@ class Vehicle{
         return Promise.reject(new Error('Custom Error'))
     }
 
+    testingReduceMethod()
+    {
+        let arr = [1,2,3,4,5,6];
+        return arr.reduce((acc,curr)=>{
+            return acc = acc + curr;
+        },1)
+    }
+
 }
 
 module.exports=Vehicle
